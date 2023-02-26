@@ -12,7 +12,7 @@ function clickHandler () {
 
     zapros.open('GET','https://api.github.com/users');
     zapros.onload = () => {
-        //     console.log(zapros.response);
+        //   console.log(zapros.response);
         const usersRes = JSON.parse(zapros.response);
          console.log(usersRes);
         // --- Знаходимо дів
@@ -21,7 +21,11 @@ function clickHandler () {
         //--- Переберем масив з данними
 
         usersRes.forEach(element => {
-            container.innerHTML += `<div>${element.login} - ${element.avatar_url}</div>`
+            container.innerHTML += `
+            <div class="users">
+                <img src = "${element.avatar_url}" alt=""><br>
+                ${element.login} 
+            </div>`
         });
     }
 
